@@ -1,0 +1,3 @@
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]
+
+SetEnvIf Authorization .+ HTTP_AUTHORIZATION=$0

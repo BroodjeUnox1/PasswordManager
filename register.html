@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V1</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" href="css/jquery.loadingModal.css">
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-pic js-tilt" data-tilt>
+					<img src="images/img-01.png" alt="IMG">
+				</div>
+
+				<form class="login100-form validate-form noEnterSubmit">
+					<span class="login100-form-title">
+						Member register
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate="A valid E-mail is required">
+						<input class="input100" id="username" type="text" name="username" placeholder="Username">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-user-circle" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="A valid E-mail is required">
+						<input class="input100" id="email" type="text" name="email" placeholder="Email">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+						<input class="input100" type="password" id="password" name="password" placeholder="Password">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+					
+					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+						<input class="input100" type="password" id="password2" name="password2" placeholder="Password">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" id="submit" type="button">
+							Register
+						</button>
+					</div>
+
+					<div class="text-center p-t-12">
+						<a class="txt2" href="index.html">
+							Already have an account?
+						</a>
+					</div>
+
+					<div class="text-center p-t-136">
+						<a class="txt2" href="index.html">
+							
+						</a>
+					</div>
+
+					<input type="submit" name="submit" id="submitClone" style="display: none;">
+				</form>
+			</div>
+		</div>
+	</div>
+<!--===============================================================================================-->  
+<script src="cookies.js"></script>
+<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/bootstrap/js/popper.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/tilt/tilt.jquery.min.js"></script>
+<script src="js/jquery.loadingModal.js"></script>
+<script>
+    function showModal() {
+        $('body').loadingModal({text: 'Signin in please wait..'});
+
+        var delay = function(ms){ return new Promise(function(r) { setTimeout(r, ms) }) };
+        var time = 3500;
+
+        delay(time)
+        	.then(function(){ window.location = 'overview.html'; })
+    }
+</script>
+<script>
+	$(document).ready(function(){
+
+		// To add red lines
+		// $(".input100").addClass('false-border');
+		// $("#submitClone").click();
+
+		// remove the red line if there is one
+		$("#email").focus(function(event) {
+		$("#email").removeClass('success-border');
+		$("#email").removeClass('false-border');
+		});
+
+		// remove the red line if there is one
+		$("#password").focus(function(event) {
+		$("#password").removeClass('false-border');
+		});
+
+		// prevent the users from using enter to not load the action from the form
+		$('.noEnterSubmit').keypress(function(e){
+			if ( e.which == 13 ) return false;
+			//or...
+			if ( e.which == 13 ) e.preventDefault();
+		});
+
+	}); // end document.ready()
+
+
+	$('.js-tilt').tilt({
+		scale: 1.1
+	})
+
+</script>
+<!--===============================================================================================-->
+<script src="js/main.js"></script>
+</body>
+</html> 
